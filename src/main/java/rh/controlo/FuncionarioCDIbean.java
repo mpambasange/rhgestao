@@ -14,7 +14,7 @@ import rh.modelo.Funcionario;
 
 /**
  *
- * @author manuelpambasagejorge
+ * @author manuelpambasangejorge
  */
 @Named(value = "funcionarioMbean")
 @RequestScoped
@@ -24,6 +24,7 @@ public class FuncionarioCDIbean {
     Funcionario funcionario1 = new Funcionario ("Manuel", "Jorge", "MEI", 31, 25000);
     Funcionario funcionario2 = new Funcionario ("Joaquim", "Hangalo", "SDomingos", 40, 100000);
     Funcionario funcionario3 = new Funcionario ("Mel", "Jorge", "Caixa Angola", 32, 50000);
+    
    
     List<Funcionario> funcionarios = new ArrayList<>();
     
@@ -63,5 +64,14 @@ public class FuncionarioCDIbean {
     public String guardar() {
         return "resultado";
     }
+    
+    public String salvar() {
+         
+         funcionarios.add(funcionario);
+         funcionario = new Funcionario();
+         return "listafuncionario";
+    }
+    
+    
 
 }

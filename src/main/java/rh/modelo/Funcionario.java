@@ -7,7 +7,7 @@ package rh.modelo;
 
 /**
  *
- * @author manuelpambasagejorge
+ * @author manuelpambasangejorge
  */
 public class Funcionario {
     private String nome;
@@ -15,6 +15,11 @@ public class Funcionario {
     private String departamento;
     private int idade;
     private double salario;
+    private String casa;
+    private String rua;
+    private String bairro;
+    private String municipio;
+    
     
 
     
@@ -67,6 +72,38 @@ public class Funcionario {
 
     public void setSalario(double salario) {
         this.salario = salario;
+    }
+
+    public String getCasa() {
+        return casa;
+    }
+
+    public void setCasa(String casa) {
+        this.casa = casa;
+    }
+
+    public String getRua() {
+        return rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
     }
     
       
