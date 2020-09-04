@@ -8,21 +8,43 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:panelGrid columns="2">
+        <!--   <h:messages showDetail="true" showSummary="true" style="color: #00FF00;"/> -->
+           
+            <h:panelGrid columns="3">
                 <f:facet name="header">
                     
-                    Registo de novo funcionario
+                Registo de novo funcionario
                   
                 </f:facet>
-                
+               <h:panelGrid columns="3">
                 <h:outputLabel value="Nome"/>    
-                <h:inputText value="#{funcionarioMbean.funcionario.nome}" size="40"/>
+                <h:inputText id="nome" value="#{funcionarioMbean.funcionario.nome}" size="20" required="true" requiredMessage="O campo nome é obrigatório"/>
+                <h:message for="nome"/>
+                </h:panelGrid>
                 
+               <h:panelGrid columns="3">
                 <h:outputLabel value="Sobrenome"/>    
-                <h:inputText value="#{funcionarioMbean.funcionario.sobrenome}" size="40"/>
+                <h:inputText id="sobrenome" value="#{funcionarioMbean.funcionario.sobrenome}" size="20" required="true" requiredMessage="O campo sobrenome é obrigatório"/>
+                <h:message for="sobrenome"/>
+                </h:panelGrid>
                 
-                <h:outputLabel value="Salario"/>    
-                <h:inputText value="#{funcionarioMbean.funcionario.salario}" size="40"/>
+               <h:panelGrid columns="3">
+               <h:outputLabel value="Salario"/>    
+                <h:inputText id="salario" value="#{funcionarioMbean.funcionario.salario}" size="20"> 
+                 <f:convertNumber minFractionDigits="2"/>
+                </h:inputText>
+                <h:message for="salario"/>
+                </h:panelGrid> 
+                
+               <h:panelGrid columns="3">
+                <h:outputLabel value="Data de Nascimento"/>
+                <h:inputText id="Data_Nascimento" value="#{funcionarioMbean.funcionario.dataNascimento}" required="true" requiredMessage="O campo data de nascimento é obrigatório" size="20">
+                    
+                    <f:convertDateTime dateStyle="medium" pattern="dd/MM/yyyy"/>
+   
+                </h:inputText>
+               <h:message for="Data_Nascimento"/>
+               </h:panelGrid>
                 
                 <h:outputLabel value="Departamento"/>
                 <h:selectOneMenu value="#{funcionarioMbean.funcionario.departamento}">
@@ -32,8 +54,7 @@
                     <f:selectItem itemValue="transporte" itemLabel="Transporte"/>
                 </h:selectOneMenu>
                 
-                <h:outputLabel value="Idade"/>    
-                <h:inputText value="#{funcionarioMbean.funcionario.idade}" size="10"/>
+               
                 
                 <h:outputLabel value="Endereço"/> 
                 
@@ -85,12 +106,13 @@
             </h:column>
             
             <h:column>
-                  <f:facet name="header"> Idade</f:facet>
-                #{funcionario.idade} 
+                  <f:facet name="header"> Data de Nascimento</f:facet>
+                #{funcionario.dataNascimento} 
             </h:column>
             
              <h:column>
                   <f:facet name="header"> Salário</f:facet>
+                 
                 #{funcionario.salario} 
             </h:column>
             
